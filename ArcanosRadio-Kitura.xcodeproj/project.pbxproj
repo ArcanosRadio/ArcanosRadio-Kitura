@@ -2911,7 +2911,6 @@
 		OBJ_206 /* Bucket.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Bucket.cpp; sourceTree = "<group>"; };
 		OBJ_207 /* BucketList.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = BucketList.cpp; sourceTree = "<group>"; };
 		OBJ_208 /* SystemReceiver.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SystemReceiver.cpp; sourceTree = "<group>"; };
-		OBJ_21 /* Model */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Model; sourceTree = SOURCE_ROOT; };
 		OBJ_210 /* ThreadPool.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ThreadPool.cpp; sourceTree = "<group>"; };
 		OBJ_211 /* WorkerThread.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = WorkerThread.cpp; sourceTree = "<group>"; };
 		OBJ_213 /* ConnectorManager.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ConnectorManager.cpp; sourceTree = "<group>"; };
@@ -3814,7 +3813,8 @@
 				D5417C212033791900CB5397 /* Repository.swift */,
 				D5417C2F20339E3100CB5397 /* FileRepository.swift */,
 			);
-			path = Repository;
+			name = Repository;
+			path = Sources/Repository;
 			sourceTree = SOURCE_ROOT;
 		};
 		OBJ_101 /* Schrodinger 1.0.1 */ = {
@@ -3878,7 +3878,7 @@
 			path = ".build/checkouts/Cheetah.git-9055844829175592006/Sources/Cheetah";
 			sourceTree = SOURCE_ROOT;
 		};
-		OBJ_12 /* Routes */ = {
+		OBJ_12 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
 				OBJ_13 /* ArtistController.swift */,
@@ -3887,7 +3887,7 @@
 				OBJ_14 /* HealthRoutes.swift */,
 				D5417C1D203373AE00CB5397 /* URLParams.swift */,
 			);
-			path = Routes;
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		OBJ_127 /* BSON 5.2.3 */ = {
@@ -5029,19 +5029,17 @@
 			path = CRUD;
 			sourceTree = "<group>";
 		};
-		OBJ_5 /*  */ = {
+		OBJ_5 = {
 			isa = PBXGroup;
 			children = (
 				OBJ_6 /* Package.swift */,
 				OBJ_7 /* Sources */,
 				OBJ_17 /* Tests */,
 				OBJ_20 /* chart */,
-				OBJ_21 /* Model */,
 				OBJ_22 /* DerivedData */,
 				OBJ_23 /* Dependencies */,
 				OBJ_475 /* Products */,
 			);
-			name = "";
 			sourceTree = "<group>";
 		};
 		OBJ_50 /* Collection */ = {
@@ -5105,13 +5103,14 @@
 		OBJ_7 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				D5417C1720335BB900CB5397 /* Repository */,
-				D5417C1320335AF000CB5397 /* Model */,
+				D5417C1F203373F900CB5397 /* DependencyInjector.swift */,
 				OBJ_8 /* Application */,
 				OBJ_15 /* ArcanosRadio-Kitura */,
-				D5417C1F203373F900CB5397 /* DependencyInjector.swift */,
+				OBJ_12 /* Controller */,
+				D5417C1320335AF000CB5397 /* Model */,
+				D5417C1720335BB900CB5397 /* Repository */,
 			);
-			name = Sources;
+			path = Sources;
 			sourceTree = SOURCE_ROOT;
 		};
 		OBJ_78 /* Internals */ = {
@@ -5131,7 +5130,6 @@
 				OBJ_9 /* Application.swift */,
 				OBJ_10 /* InitializationError.swift */,
 				OBJ_11 /* Metrics.swift */,
-				OBJ_12 /* Routes */,
 			);
 			name = Application;
 			path = Sources/Application;
@@ -6535,7 +6533,7 @@
 			knownRegions = (
 				en,
 			);
-			mainGroup = OBJ_5 /*  */;
+			mainGroup = OBJ_5;
 			productRefGroup = OBJ_475 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
