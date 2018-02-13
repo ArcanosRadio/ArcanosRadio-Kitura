@@ -1,0 +1,4 @@
+module hcapiplugin {
+    umbrella "/Users/luizguitar/Documents/code/ArcanosWebRadio/ArcanosRadio-Kitura/.build/checkouts/omr-agentcore-1826539389957424207/src/hcapiplugin/include"
+    export *
+}
