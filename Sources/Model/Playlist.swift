@@ -8,7 +8,7 @@
 import Foundation
 
 public struct Playlist: Codable {
-    public let id: String
+    public let id: Id<Playlist>
     public let title: String
     public var song: LazyRelationship<Song>
     public let createdAt: Date

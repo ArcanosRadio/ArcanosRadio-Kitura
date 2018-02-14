@@ -8,7 +8,7 @@
 import Foundation
 
 public struct Song: Codable {
-    public let id: String
+    public let id: Id<Song>
     public let tags: [String]
     public let name: String
     public var artist: LazyRelationship<Artist>

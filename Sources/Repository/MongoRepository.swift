@@ -44,7 +44,7 @@ extension MongoRepository: Repository {
     }
 
     func listArtists(pageSize: Int, page: Int) -> [Artist] {
-        return list(pageSize: pageSize, page: page, sort: [Artist.Mapping.name: .ascending])
+        return list(pageSize: pageSize, page: page, sort: [ArtistMapping.name: .ascending])
     }
 
     func song(byId id: String) -> Song? {
@@ -52,7 +52,7 @@ extension MongoRepository: Repository {
     }
 
     func listSongs(pageSize: Int, page: Int) -> [Song] {
-        return list(pageSize: pageSize, page: page, sort: [Song.Mapping.name: .ascending])
+        return list(pageSize: pageSize, page: page, sort: [SongMapping.name: .ascending])
     }
 
     func playlist(byId id: String) -> Playlist? {
@@ -60,7 +60,7 @@ extension MongoRepository: Repository {
     }
 
     func listPlaylists(pageSize: Int, page: Int) -> [Playlist] {
-        return list(pageSize: pageSize, page: page, sort: [Playlist.Mapping.createdAt: .descending])
+        return list(pageSize: pageSize, page: page, sort: [PlaylistMapping.createdAt: .descending])
     }
 }
 

@@ -14,7 +14,7 @@ enum DocumentConvertionError: Error {
 }
 
 extension Document {
-    func required<T, P>(_ property: P, converter: (Primitive) -> T?) throws -> T where P: RawRepresentable, P.RawValue == String {
+    func required<T, P>(_ property: P, converter: (Primitive) -> T?) throws -> T where P: MappingProtocol {
         guard let primitive = self[property.rawValue] else { throw DocumentConvertionError.propertyNotFound }
         guard let value = converter(primitive) else { throw DocumentConvertionError.invalidConvertion }
 

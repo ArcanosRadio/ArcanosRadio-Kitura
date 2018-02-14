@@ -65,6 +65,11 @@
 		D5417C2C20338BF200CB5397 /* SongController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5417C2B20338BF200CB5397 /* SongController.swift */; };
 		D5417C2E2033948100CB5397 /* PlaylistController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5417C2D2033948100CB5397 /* PlaylistController.swift */; };
 		D5417C3020339E3100CB5397 /* FileRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5417C2F20339E3100CB5397 /* FileRepository.swift */; };
+		D5CC25D92034D77B005CAEAF /* Id.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5CC25D72034D662005CAEAF /* Id.swift */; };
+		D5CC25DC2034DE63005CAEAF /* Mapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5CC25DA2034DE0D005CAEAF /* Mapping.swift */; };
+		D5CC25DE2034E5F0005CAEAF /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5CC25DD2034E5F0005CAEAF /* Helper.swift */; };
+		D5CC25E12034E893005CAEAF /* V1.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5CC25E02034E893005CAEAF /* V1.swift */; };
+		D5CC25E32034F3B7005CAEAF /* LegacyBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5CC25E22034F3B7005CAEAF /* LegacyBridge.swift */; };
 		OBJ_1003 /* Base64_temp.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_45 /* Base64_temp.swift */; };
 		OBJ_1004 /* Database+Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_46 /* Database+Authentication.swift */; };
 		OBJ_1005 /* SCRAM.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_47 /* SCRAM.swift */; };
@@ -2810,6 +2815,11 @@
 		D5417C2B20338BF200CB5397 /* SongController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongController.swift; sourceTree = "<group>"; };
 		D5417C2D2033948100CB5397 /* PlaylistController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistController.swift; sourceTree = "<group>"; };
 		D5417C2F20339E3100CB5397 /* FileRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileRepository.swift; sourceTree = "<group>"; };
+		D5CC25D72034D662005CAEAF /* Id.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Id.swift; sourceTree = "<group>"; };
+		D5CC25DA2034DE0D005CAEAF /* Mapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mapping.swift; sourceTree = "<group>"; };
+		D5CC25DD2034E5F0005CAEAF /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
+		D5CC25E02034E893005CAEAF /* V1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = V1.swift; sourceTree = "<group>"; };
+		D5CC25E22034F3B7005CAEAF /* LegacyBridge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegacyBridge.swift; sourceTree = "<group>"; };
 		"FileKit::FileKit::Product" /* FileKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FileKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"Health::Health::Product" /* Health.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Health.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"HeliumLogger::HeliumLogger::Product" /* HeliumLogger.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = HeliumLogger.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -3796,10 +3806,12 @@
 		D5417C1320335AF000CB5397 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				D5CC25DF2034E874005CAEAF /* LegacyBridge */,
 				D5417C1420335AF000CB5397 /* Artist.swift */,
 				D5417C2520337BC300CB5397 /* Playlist.swift */,
 				D5417C2720337CBA00CB5397 /* Song.swift */,
 				D5417C2920337DAA00CB5397 /* LazyRelationship.swift */,
+				D5CC25D72034D662005CAEAF /* Id.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -3807,6 +3819,7 @@
 		D5417C1720335BB900CB5397 /* Repository */ = {
 			isa = PBXGroup;
 			children = (
+				D5CC25DA2034DE0D005CAEAF /* Mapping.swift */,
 				D5417C232033793800CB5397 /* MongoDocumentExtensions.swift */,
 				D5417C1820335BD300CB5397 /* MongoRepository.swift */,
 				D5417C1B203361C100CB5397 /* MongoModels.swift */,
@@ -3816,6 +3829,15 @@
 			name = Repository;
 			path = Sources/Repository;
 			sourceTree = SOURCE_ROOT;
+		};
+		D5CC25DF2034E874005CAEAF /* LegacyBridge */ = {
+			isa = PBXGroup;
+			children = (
+				D5CC25E22034F3B7005CAEAF /* LegacyBridge.swift */,
+				D5CC25E02034E893005CAEAF /* V1.swift */,
+			);
+			path = LegacyBridge;
+			sourceTree = "<group>";
 		};
 		OBJ_101 /* Schrodinger 1.0.1 */ = {
 			isa = PBXGroup;
@@ -5104,6 +5126,7 @@
 			isa = PBXGroup;
 			children = (
 				D5417C1F203373F900CB5397 /* DependencyInjector.swift */,
+				D5CC25DD2034E5F0005CAEAF /* Helper.swift */,
 				OBJ_8 /* Application */,
 				OBJ_15 /* ArcanosRadio-Kitura */,
 				OBJ_12 /* Controller */,
@@ -7424,11 +7447,14 @@
 			files = (
 				D5417C2820337CBA00CB5397 /* Song.swift in Sources */,
 				D5417C2E2033948100CB5397 /* PlaylistController.swift in Sources */,
+				D5CC25E12034E893005CAEAF /* V1.swift in Sources */,
 				D5417C1C203361C100CB5397 /* MongoModels.swift in Sources */,
 				D5417C2620337BC300CB5397 /* Playlist.swift in Sources */,
+				D5CC25DC2034DE63005CAEAF /* Mapping.swift in Sources */,
 				D5417C1A20335CCD00CB5397 /* MongoRepository.swift in Sources */,
 				D5417C3020339E3100CB5397 /* FileRepository.swift in Sources */,
 				D5417C242033793800CB5397 /* MongoDocumentExtensions.swift in Sources */,
+				D5CC25DE2034E5F0005CAEAF /* Helper.swift in Sources */,
 				D5417C1E203373AE00CB5397 /* URLParams.swift in Sources */,
 				D5417C1620335B1600CB5397 /* Artist.swift in Sources */,
 				OBJ_907 /* Application.swift in Sources */,
@@ -7436,9 +7462,11 @@
 				OBJ_908 /* InitializationError.swift in Sources */,
 				D5417C2C20338BF200CB5397 /* SongController.swift in Sources */,
 				D5417C2A20337DAA00CB5397 /* LazyRelationship.swift in Sources */,
+				D5CC25E32034F3B7005CAEAF /* LegacyBridge.swift in Sources */,
 				D5417C20203373F900CB5397 /* DependencyInjector.swift in Sources */,
 				OBJ_909 /* Metrics.swift in Sources */,
 				OBJ_910 /* ArtistController.swift in Sources */,
+				D5CC25D92034D77B005CAEAF /* Id.swift in Sources */,
 				OBJ_911 /* HealthRoutes.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
