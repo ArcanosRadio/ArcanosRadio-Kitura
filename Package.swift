@@ -14,7 +14,7 @@ let package = Package(
         .package(url: "https://github.com/OpenKitten/MongoKitten.git", from: "4.0.0")
     ],
     targets: [
-        .target(name: "ArcanosRadio-Kitura", dependencies: [ .target(name: "Application"), "Kitura" , "HeliumLogger"]),
+        .target(name: "ArcanosRadio-Kitura", dependencies: [ .target(name: "Application"), "Kitura", "HeliumLogger"]),
         .target(name: "Application", dependencies: [
             "Kitura",
             "KituraCORS",
@@ -23,6 +23,6 @@ let package = Package(
             "MongoKitten",
             "Health"
         ]),
-        .testTarget(name: "ApplicationTests" , dependencies: [.target(name: "Application"), "Kitura","HeliumLogger" ])
+        .testTarget(name: "ApplicationTests", dependencies: [.target(name: "Application"), "Kitura", "HeliumLogger" ])
     ]
 )

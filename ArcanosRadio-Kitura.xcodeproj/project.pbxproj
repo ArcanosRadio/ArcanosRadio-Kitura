@@ -3806,12 +3806,12 @@
 		D5417C1320335AF000CB5397 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				D5CC25DF2034E874005CAEAF /* LegacyBridge */,
 				D5417C1420335AF000CB5397 /* Artist.swift */,
+				D5CC25D72034D662005CAEAF /* Id.swift */,
+				D5417C2920337DAA00CB5397 /* LazyRelationship.swift */,
 				D5417C2520337BC300CB5397 /* Playlist.swift */,
 				D5417C2720337CBA00CB5397 /* Song.swift */,
-				D5417C2920337DAA00CB5397 /* LazyRelationship.swift */,
-				D5CC25D72034D662005CAEAF /* Id.swift */,
+				D5CC25DF2034E874005CAEAF /* LegacyBridge */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -3819,12 +3819,12 @@
 		D5417C1720335BB900CB5397 /* Repository */ = {
 			isa = PBXGroup;
 			children = (
+				D5417C2F20339E3100CB5397 /* FileRepository.swift */,
 				D5CC25DA2034DE0D005CAEAF /* Mapping.swift */,
 				D5417C232033793800CB5397 /* MongoDocumentExtensions.swift */,
-				D5417C1820335BD300CB5397 /* MongoRepository.swift */,
 				D5417C1B203361C100CB5397 /* MongoModels.swift */,
+				D5417C1820335BD300CB5397 /* MongoRepository.swift */,
 				D5417C212033791900CB5397 /* Repository.swift */,
-				D5417C2F20339E3100CB5397 /* FileRepository.swift */,
 			);
 			name = Repository;
 			path = Sources/Repository;
@@ -3904,9 +3904,9 @@
 			isa = PBXGroup;
 			children = (
 				OBJ_13 /* ArtistController.swift */,
+				OBJ_14 /* HealthRoutes.swift */,
 				D5417C2D2033948100CB5397 /* PlaylistController.swift */,
 				D5417C2B20338BF200CB5397 /* SongController.swift */,
-				OBJ_14 /* HealthRoutes.swift */,
 				D5417C1D203373AE00CB5397 /* URLParams.swift */,
 			);
 			path = Controller;

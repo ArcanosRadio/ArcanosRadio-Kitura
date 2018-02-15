@@ -15,9 +15,9 @@ class LegacyBridge<T: Codable>: Codable {
         self.entity = entity
     }
 
-    init<X>(_ entity: T, _ customEncoder: X.Type) where X: CustomEncoder, X.Entity == T {
+    init<X>(_ entity: T, _ customEncoder: () -> X) where X: CustomEncoder, X.Entity == T {
         self.entity = entity
-        self.customEncoder = customEncoder.encode
+        self.customEncoder = customEncoder().encode
     }
 
     required init(from decoder: Decoder) throws {
@@ -35,5 +35,5 @@ class LegacyBridge<T: Codable>: Codable {
 
 protocol CustomEncoder {
     associatedtype Entity
-    static func encode(entity: Entity, encoder: Encoder) throws
+    func encode(entity: Entity, encoder: Encoder) throws
 }

@@ -65,20 +65,12 @@ extension MongoRepository: Repository {
 }
 
 extension MongoRepository: FileRepository {
-    private func file(byName name: String) -> Data? {
+    func file(byName name: String) -> Data? {
         do {
             let query = try fs.find(.init(aqt: .valEquals(key: "filename", val: name)))
             guard let file = query.next() else { return nil }
             let bytes = try file.read()
             return Data(bytes: bytes)
         } catch { return nil }
-    }
-
-    func albumArt(byName name: String) -> Data? {
-        return file(byName: name)
-    }
-
-    func lyrics(byName name: String) -> Data? {
-        return file(byName: name)
     }
 }

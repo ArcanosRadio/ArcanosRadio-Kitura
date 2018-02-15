@@ -8,6 +8,5 @@
 import Foundation
 
 protocol FileRepository {
-    func albumArt(byName name: String) -> Data?
-    func lyrics(byName name: String) -> Data?
+    func file(byName name: String) -> Data?
 }

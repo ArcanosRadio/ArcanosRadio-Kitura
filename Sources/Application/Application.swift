@@ -1,11 +1,11 @@
-import Foundation
-import Kitura
-import LoggerAPI
-import Configuration
 import CloudEnvironment
-import KituraContracts
+import Configuration
+import Foundation
 import Health
+import Kitura
+import KituraContracts
 import KituraCORS
+import LoggerAPI
 
 public let projectPath = ConfigurationManager.BasePath.project.path
 public let health = Health()

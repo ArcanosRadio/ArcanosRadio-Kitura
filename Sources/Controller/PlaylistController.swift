@@ -1,10 +1,11 @@
 import Foundation
 import KituraContracts
+import Configuration
 
 class PlaylistController {
     static func setupRoutes(app: App) {
         // v1
-        app.router.post("/parse/classes/Playlist", handler: V1.listOne)
+        app.router.post("/parse/classes/Playlist", handler: V1.listOne(url: app.cloudEnv.url))
 
         // v2
         app.router.get("/playlist", handler: V2.byId)
@@ -50,35 +51,40 @@ extension PlaylistController {
 }
 
 extension PlaylistController {
-    struct ParseRequest: Codable {
-        let include: String?
-        let order: String?
-        let method: String?
-        let limit: String?
-
-        enum CodingKeys: String, CodingKey {
-            case include, order, method = "_method", limit
-        }
-    }
-
     class V1 {
-        static func listOne(requestBody: ParseRequest, completion: @escaping ([String: [LegacyBridge<Playlist>]]?, RequestError?) -> Void) {
-            let repository = inject(Repository.self)
-            var playlist = repository.listPlaylists(pageSize: 1, page: 0).first!
+        typealias LegacyPlaylistJson = [String: [LegacyBridge<Playlist>]]
+        typealias LegacyPlaylistCompletion = (LegacyPlaylistJson?, RequestError?) -> Void
+        struct ParseRequest: Codable {
+            let include: String?
+            let order: String?
+            let method: String?
+            let limit: String?
 
-            if let songId = playlist.song.key() {
-                let song = repository.song(byId: songId)!
-                playlist.song = .loaded(song)
+            enum CodingKeys: String, CodingKey {
+                case include, order, method = "_method", limit
             }
+        }
 
-            var song = playlist.song.value()!
-            if let artistId = song.artist.key() {
-                let artist = repository.artist(byId: artistId)!
-                song.artist = .loaded(artist)
-                playlist.song = .loaded(song)
+        static func listOne(url: String) -> (ParseRequest, @escaping LegacyPlaylistCompletion) -> Void {
+            return { requestBody, completion in
+                let repository = inject(Repository.self)
+                var playlist = repository.listPlaylists(pageSize: 1, page: 0).first!
+
+                if let songId = playlist.song.key() {
+                    let song = repository.song(byId: songId)!
+                    playlist.song = .loaded(song)
+                }
+
+                var song = playlist.song.value()!
+                if let artistId = song.artist.key() {
+                    let artist = repository.artist(byId: artistId)!
+                    song.artist = .loaded(artist)
+                    playlist.song = .loaded(song)
+                }
+
+                let filePath = "\(url)/parse/files/arcanosRadio/%@"
+                completion(["results": [LegacyBridge(playlist, { PlaylistV1(filePath: filePath) })]], nil)
             }
-
-            completion(["results": [LegacyBridge(playlist, PlaylistV1.self)]], nil)
         }
     }
 }
