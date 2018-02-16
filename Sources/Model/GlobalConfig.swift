@@ -17,6 +17,7 @@ public struct GlobalConfig: Codable {
     public let androidShareUrl: URL
     public let androidPoolingTimeActive: Int
     public let iphoneRightsFlag: Bool
+    public let serviceUrl: URL
 }
 
 extension GlobalConfig: Equatable {
@@ -30,6 +31,7 @@ extension GlobalConfig: Equatable {
             lhs.androidStreamingUrl == rhs.androidStreamingUrl &&
             lhs.androidShareUrl == rhs.androidShareUrl &&
             lhs.androidPoolingTimeActive == rhs.androidPoolingTimeActive &&
-            lhs.iphoneRightsFlag == rhs.iphoneRightsFlag
+            lhs.iphoneRightsFlag == rhs.iphoneRightsFlag &&
+            lhs.serviceUrl == rhs.serviceUrl
     }
 }

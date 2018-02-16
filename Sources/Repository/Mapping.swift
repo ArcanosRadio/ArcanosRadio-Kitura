@@ -61,4 +61,5 @@ enum GlobalConfigMapping: String, MappingProtocol {
     case androidShareUrl = "params.androidShareUrl"
     case androidPoolingTimeActive = "params.androidPoolingTimeActive"
     case iphoneRightsFlag = "params.iphoneRightsFlag"
+    case serviceUrl = "params.serviceUrl"
 }

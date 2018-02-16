@@ -76,7 +76,7 @@ extension GlobalConfig: MongoModel {
 
     init?(mongo document: Document) {
         do {
-            self.id = Id(rawValue: try document.required(GlobalConfigMapping.id, converter: String.init))!
+            self.id = Id(rawValue: String(try document.required(GlobalConfigMapping.id, converter: Int.init)))!
 
             self.iphoneStreamingUrl = try document.required(GlobalConfigMapping.iphoneStreamingUrl, converter: URL.init)
 
@@ -87,6 +87,7 @@ extension GlobalConfig: MongoModel {
             self.androidShareUrl = try document.required(GlobalConfigMapping.androidShareUrl, converter: URL.init)
             self.androidPoolingTimeActive = try document.required(GlobalConfigMapping.androidPoolingTimeActive, converter: Int.init)
             self.iphoneRightsFlag = try document.required(GlobalConfigMapping.iphoneRightsFlag, converter: Bool.init)
+            self.serviceUrl = try document.required(GlobalConfigMapping.serviceUrl, converter: URL.init)
         } catch {
             return nil
         }

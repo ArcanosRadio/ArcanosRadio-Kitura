@@ -4,7 +4,9 @@ import KituraContracts
 class PlaylistController {
     static func setupRoutes(app: App) {
         // v1
-        app.router.post("/parse/classes/Playlist", handler: V1.listOne(url: app.cloudEnv.url))
+        let repository = inject(Repository.self)
+        let url = repository.getGlobalConfig().serviceUrl
+        app.router.post("/parse/classes/Playlist", handler: V1.current(url: url))
 
         // v2
         app.router.get("/playlist", handler: V2.byId)
@@ -64,7 +66,7 @@ extension PlaylistController {
             }
         }
 
-        static func listOne(url: String) -> (ParseRequest, @escaping LegacyPlaylistCompletion) -> Void {
+        static func current(url: URL) -> (ParseRequest, @escaping LegacyPlaylistCompletion) -> Void {
             return { requestBody, completion in
                 let repository = inject(Repository.self)
                 var playlist = repository.listPlaylists(pageSize: 1, page: 0).first!
