@@ -11,10 +11,10 @@ public class App {
 
     func postInit() throws {
         // Endpoints
-        ArtistController.setupRoutes(app: self)
-        SongController.setupRoutes(app: self)
-        PlaylistController.setupRoutes(app: self)
-        GlobalConfigController.setupRoutes(app: self)
+        ArtistAPIController.setupRoutes(app: self)
+        SongAPIController.setupRoutes(app: self)
+        PlaylistAPIController.setupRoutes(app: self)
+        GlobalConfigAPIController.setupRoutes(app: self)
     }
 
     public func run() throws {

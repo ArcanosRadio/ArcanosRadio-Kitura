@@ -1,10 +1,3 @@
-//
-//  Helper.swift
-//  Application
-//
-//  Created by Luiz Rodrigo Martins Barbosa on 14.02.18.
-//
-
 import Foundation
 
 extension KeyedDecodingContainer {

@@ -33,10 +33,10 @@
 /* Begin PBXBuildFile section */
 		D51043642037774B00D8D17C /* DependencyInjector.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5104345203776D400D8D17C /* DependencyInjector.swift */; };
 		D51043652037774B00D8D17C /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5104344203776D400D8D17C /* Helper.swift */; };
-		D51043662037775000D8D17C /* ArtistController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5104347203776D400D8D17C /* ArtistController.swift */; };
-		D51043672037775000D8D17C /* GlobalConfigController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5104348203776D400D8D17C /* GlobalConfigController.swift */; };
-		D51043692037775000D8D17C /* PlaylistController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D510434B203776D400D8D17C /* PlaylistController.swift */; };
-		D510436A2037775000D8D17C /* SongController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D510434D203776D400D8D17C /* SongController.swift */; };
+		D51043662037775000D8D17C /* ArtistAPIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5104347203776D400D8D17C /* ArtistAPIController.swift */; };
+		D51043672037775000D8D17C /* GlobalConfigAPIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5104348203776D400D8D17C /* GlobalConfigAPIController.swift */; };
+		D51043692037775000D8D17C /* PlaylistAPIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D510434B203776D400D8D17C /* PlaylistAPIController.swift */; };
+		D510436A2037775000D8D17C /* SongAPIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D510434D203776D400D8D17C /* SongAPIController.swift */; };
 		D510436B2037775000D8D17C /* URLParams.swift in Sources */ = {isa = PBXBuildFile; fileRef = D510434A203776D400D8D17C /* URLParams.swift */; };
 		D510436C2037776400D8D17C /* Artist.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5104340203776D400D8D17C /* Artist.swift */; };
 		D510436D2037776400D8D17C /* GlobalConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5104341203776D400D8D17C /* GlobalConfig.swift */; };
@@ -957,12 +957,12 @@
 		D5104343203776D400D8D17C /* LazyRelationship.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LazyRelationship.swift; sourceTree = "<group>"; };
 		D5104344203776D400D8D17C /* Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		D5104345203776D400D8D17C /* DependencyInjector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DependencyInjector.swift; sourceTree = "<group>"; };
-		D5104347203776D400D8D17C /* ArtistController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtistController.swift; sourceTree = "<group>"; };
-		D5104348203776D400D8D17C /* GlobalConfigController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalConfigController.swift; sourceTree = "<group>"; };
+		D5104347203776D400D8D17C /* ArtistAPIController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtistAPIController.swift; sourceTree = "<group>"; };
+		D5104348203776D400D8D17C /* GlobalConfigAPIController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalConfigAPIController.swift; sourceTree = "<group>"; };
 		D5104349203776D400D8D17C /* .keep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .keep; sourceTree = "<group>"; };
 		D510434A203776D400D8D17C /* URLParams.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLParams.swift; sourceTree = "<group>"; };
-		D510434B203776D400D8D17C /* PlaylistController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaylistController.swift; sourceTree = "<group>"; };
-		D510434D203776D400D8D17C /* SongController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SongController.swift; sourceTree = "<group>"; };
+		D510434B203776D400D8D17C /* PlaylistAPIController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaylistAPIController.swift; sourceTree = "<group>"; };
+		D510434D203776D400D8D17C /* SongAPIController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SongAPIController.swift; sourceTree = "<group>"; };
 		D510437A2037789700D8D17C /* ParseAuthMiddleware.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseAuthMiddleware.swift; sourceTree = "<group>"; };
 		D510437C203785A700D8D17C /* AppSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettings.swift; sourceTree = "<group>"; };
 		D510438020378A7B00D8D17C /* config.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = config.json; sourceTree = "<group>"; };
@@ -1456,14 +1456,30 @@
 		D5104346203776D400D8D17C /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				D5104385203792B400D8D17C /* API */,
+				D5104386203792C300D8D17C /* Web */,
 				D5104349203776D400D8D17C /* .keep */,
-				D5104347203776D400D8D17C /* ArtistController.swift */,
-				D5104348203776D400D8D17C /* GlobalConfigController.swift */,
-				D510434B203776D400D8D17C /* PlaylistController.swift */,
-				D510434D203776D400D8D17C /* SongController.swift */,
 				D510434A203776D400D8D17C /* URLParams.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		D5104385203792B400D8D17C /* API */ = {
+			isa = PBXGroup;
+			children = (
+				D5104347203776D400D8D17C /* ArtistAPIController.swift */,
+				D5104348203776D400D8D17C /* GlobalConfigAPIController.swift */,
+				D510434B203776D400D8D17C /* PlaylistAPIController.swift */,
+				D510434D203776D400D8D17C /* SongAPIController.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		D5104386203792C300D8D17C /* Web */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Web;
 			sourceTree = "<group>";
 		};
 		OBJ_101 /* CryptoKitten 0.2.3 */ = {
@@ -2922,10 +2938,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
-				D510436A2037775000D8D17C /* SongController.swift in Sources */,
+				D510436A2037775000D8D17C /* SongAPIController.swift in Sources */,
 				D510436B2037775000D8D17C /* URLParams.swift in Sources */,
 				D51043642037774B00D8D17C /* DependencyInjector.swift in Sources */,
-				D51043672037775000D8D17C /* GlobalConfigController.swift in Sources */,
+				D51043672037775000D8D17C /* GlobalConfigAPIController.swift in Sources */,
 				OBJ_480 /* Application.swift in Sources */,
 				D51043652037774B00D8D17C /* Helper.swift in Sources */,
 				D510436C2037776400D8D17C /* Artist.swift in Sources */,
@@ -2934,11 +2950,11 @@
 				D51043782037777300D8D17C /* MongoRepository.swift in Sources */,
 				D51043772037777300D8D17C /* MongoModels.swift in Sources */,
 				D51043752037777300D8D17C /* Mapping.swift in Sources */,
-				D51043662037775000D8D17C /* ArtistController.swift in Sources */,
+				D51043662037775000D8D17C /* ArtistAPIController.swift in Sources */,
 				D510436F2037776400D8D17C /* LazyRelationship.swift in Sources */,
 				D51043702037776400D8D17C /* Playlist.swift in Sources */,
 				D510437B2037789700D8D17C /* ParseAuthMiddleware.swift in Sources */,
-				D51043692037775000D8D17C /* PlaylistController.swift in Sources */,
+				D51043692037775000D8D17C /* PlaylistAPIController.swift in Sources */,
 				D51043712037776400D8D17C /* Song.swift in Sources */,
 				D51043722037776B00D8D17C /* LegacyBridge.swift in Sources */,
 				D510436E2037776400D8D17C /* Id.swift in Sources */,

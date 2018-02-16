@@ -1,7 +1,7 @@
 import Foundation
 import KituraContracts
 
-class PlaylistController {
+class PlaylistAPIController {
     static func setupRoutes(app: App) {
         // v1
         let repository = inject(Repository.self)
@@ -16,7 +16,7 @@ class PlaylistController {
     }
 }
 
-extension PlaylistController {
+extension PlaylistAPIController {
     class V2 {
         static func byId(id: StringIdentifier, completion: @escaping (Playlist?, RequestError?) -> Void) {
             let repository = inject(Repository.self)
@@ -52,7 +52,7 @@ extension PlaylistController {
     }
 }
 
-extension PlaylistController {
+extension PlaylistAPIController {
     class V1 {
         typealias LegacyPlaylistJson = [String: [LegacyBridge<Playlist>]]
         typealias LegacyPlaylistCompletion = (LegacyPlaylistJson?, RequestError?) -> Void

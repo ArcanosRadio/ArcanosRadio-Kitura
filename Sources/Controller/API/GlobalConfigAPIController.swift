@@ -1,7 +1,7 @@
 import Foundation
 import KituraContracts
 
-class GlobalConfigController {
+class GlobalConfigAPIController {
     static func setupRoutes(app: App) {
         // v1
         app.router.get("/parse/config", allowPartialMatch: false, middleware: app.parseAuthenticationMiddleware)
@@ -12,7 +12,7 @@ class GlobalConfigController {
     }
 }
 
-extension GlobalConfigController {
+extension GlobalConfigAPIController {
     class V2 {
         static func listOne(completion: @escaping (GlobalConfig, RequestError?) -> Void) {
             let repository = inject(Repository.self)
@@ -22,7 +22,7 @@ extension GlobalConfigController {
     }
 }
 
-extension GlobalConfigController {
+extension GlobalConfigAPIController {
     class V1 {
         static func listOne(completion: @escaping ([String: GlobalConfig], RequestError?) -> Void) {
             let repository = inject(Repository.self)

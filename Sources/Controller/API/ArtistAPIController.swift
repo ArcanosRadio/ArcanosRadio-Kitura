@@ -1,7 +1,7 @@
 import Foundation
 import KituraContracts
 
-class ArtistController {
+class ArtistAPIController {
     static func setupRoutes(app: App) {
         app.router.get("/api/artist", handler: byId)
         app.router.get("/api/artist", handler: list)

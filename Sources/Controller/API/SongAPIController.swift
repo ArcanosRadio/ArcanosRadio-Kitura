@@ -2,7 +2,7 @@ import Foundation
 import Kitura
 import KituraContracts
 
-class SongController {
+class SongAPIController {
     static func setupRoutes(app: App) {
         // v1
         app.router.get("/parse/files/arcanosRadio/:name", allowPartialMatch: false, middleware: app.parseAuthenticationMiddleware)
@@ -16,7 +16,7 @@ class SongController {
     }
 }
 
-extension SongController {
+extension SongAPIController {
     class V2 {
         static func byId(id: StringIdentifier, completion: @escaping (Song?, RequestError?) -> Void) {
             let repository = inject(Repository.self)
@@ -57,7 +57,7 @@ extension SongController {
     }
 }
 
-extension SongController {
+extension SongAPIController {
     class V1 {
         static func file(req: RouterRequest, resp: RouterResponse, next: @escaping () -> Void) throws {
             return try V2.file(req: req, resp: resp, next: next)

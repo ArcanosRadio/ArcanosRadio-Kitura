@@ -1,10 +1,3 @@
-//
-//  ParseAuthMiddleware.swift
-//  Application
-//
-//  Created by Luiz Rodrigo Martins Barbosa on 16.02.18.
-//
-
 import Foundation
 import Kitura
 
