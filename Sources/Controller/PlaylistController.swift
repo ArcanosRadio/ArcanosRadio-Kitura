@@ -10,9 +10,9 @@ class PlaylistController {
         app.router.post("/parse/classes/Playlist", handler: V1.current(url: url))
 
         // v2
-        app.router.get("/playlist", handler: V2.byId)
-        app.router.get("/playlist", handler: V2.list)
-        app.router.get("/playlist/current", handler: V2.current)
+        app.router.get("/api/playlist", handler: V2.byId)
+        app.router.get("/api/playlist", handler: V2.list)
+        app.router.get("/api/playlist/current", handler: V2.current)
     }
 }
 

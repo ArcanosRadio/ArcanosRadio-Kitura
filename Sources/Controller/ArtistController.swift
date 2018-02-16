@@ -3,8 +3,8 @@ import KituraContracts
 
 class ArtistController {
     static func setupRoutes(app: App) {
-        app.router.get("/artist", handler: byId)
-        app.router.get("/artist", handler: list)
+        app.router.get("/api/artist", handler: byId)
+        app.router.get("/api/artist", handler: list)
     }
 
     static func byId(id: StringIdentifier, completion: @escaping (Artist?, RequestError?) -> Void) {

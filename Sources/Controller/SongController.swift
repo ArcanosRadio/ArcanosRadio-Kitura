@@ -9,10 +9,10 @@ class SongController {
         app.router.get("/parse/files/arcanosRadio/:name", handler: V1.file)
 
         // v2
-        app.router.get("/song", handler: V2.byId)
-        app.router.get("/song", handler: V2.list)
-        app.router.get("/albumArt/:name", handler: V2.file)
-        app.router.get("/lyrics/:name", handler: V2.file)
+        app.router.get("/api/song", handler: V2.byId)
+        app.router.get("/api/song", handler: V2.list)
+        app.router.get("/api/albumArt/:name", handler: V2.file)
+        app.router.get("/api/lyrics/:name", handler: V2.file)
     }
 }
 

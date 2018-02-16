@@ -8,7 +8,7 @@ class GlobalConfigController {
         app.router.get("/parse/config", handler: V1.listOne)
 
         // v2
-        app.router.get("/config", handler: V2.listOne)
+        app.router.get("/api/config", handler: V2.listOne)
     }
 }
 
