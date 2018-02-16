@@ -52,6 +52,8 @@
 		D51043772037777300D8D17C /* MongoModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5104339203776D400D8D17C /* MongoModels.swift */; };
 		D51043782037777300D8D17C /* MongoRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5104335203776D400D8D17C /* MongoRepository.swift */; };
 		D51043792037777300D8D17C /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5104337203776D400D8D17C /* Repository.swift */; };
+		D510437B2037789700D8D17C /* ParseAuthMiddleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = D510437A2037789700D8D17C /* ParseAuthMiddleware.swift */; };
+		D510437D203785A700D8D17C /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = D510437C203785A700D8D17C /* AppSettings.swift */; };
 		OBJ_304 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_6 /* Package.swift */; };
 		OBJ_310 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_97 /* Package.swift */; };
 		OBJ_316 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_99 /* Package.swift */; };
@@ -953,14 +955,17 @@
 		D5104341203776D400D8D17C /* GlobalConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalConfig.swift; sourceTree = "<group>"; };
 		D5104342203776D400D8D17C /* Playlist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Playlist.swift; sourceTree = "<group>"; };
 		D5104343203776D400D8D17C /* LazyRelationship.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LazyRelationship.swift; sourceTree = "<group>"; };
-		D5104344203776D400D8D17C /* Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Helper.swift; path = Sources/Helper.swift; sourceTree = "<group>"; };
-		D5104345203776D400D8D17C /* DependencyInjector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DependencyInjector.swift; path = Sources/DependencyInjector.swift; sourceTree = "<group>"; };
+		D5104344203776D400D8D17C /* Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
+		D5104345203776D400D8D17C /* DependencyInjector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DependencyInjector.swift; sourceTree = "<group>"; };
 		D5104347203776D400D8D17C /* ArtistController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtistController.swift; sourceTree = "<group>"; };
 		D5104348203776D400D8D17C /* GlobalConfigController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalConfigController.swift; sourceTree = "<group>"; };
 		D5104349203776D400D8D17C /* .keep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .keep; sourceTree = "<group>"; };
 		D510434A203776D400D8D17C /* URLParams.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLParams.swift; sourceTree = "<group>"; };
 		D510434B203776D400D8D17C /* PlaylistController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaylistController.swift; sourceTree = "<group>"; };
 		D510434D203776D400D8D17C /* SongController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SongController.swift; sourceTree = "<group>"; };
+		D510437A2037789700D8D17C /* ParseAuthMiddleware.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseAuthMiddleware.swift; sourceTree = "<group>"; };
+		D510437C203785A700D8D17C /* AppSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettings.swift; sourceTree = "<group>"; };
+		D510438020378A7B00D8D17C /* config.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = config.json; sourceTree = "<group>"; };
 		"Kitura-TemplateEngine::KituraTemplateEngine::Product" /* KituraTemplateEngine.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = KituraTemplateEngine.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"Kitura-net::CHTTPParser::Product" /* CHTTPParser.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CHTTPParser.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"Kitura-net::KituraNet::Product" /* KituraNet.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = KituraNet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1422,8 +1427,7 @@
 				D5104335203776D400D8D17C /* MongoRepository.swift */,
 				D5104337203776D400D8D17C /* Repository.swift */,
 			);
-			name = Repository;
-			path = Sources/Repository;
+			path = Repository;
 			sourceTree = "<group>";
 		};
 		D510433A203776D400D8D17C /* Model */ = {
@@ -1437,8 +1441,7 @@
 				D510433C203776D400D8D17C /* Song.swift */,
 				D510433D203776D400D8D17C /* LegacyBridge */,
 			);
-			name = Model;
-			path = Sources/Model;
+			path = Model;
 			sourceTree = "<group>";
 		};
 		D510433D203776D400D8D17C /* LegacyBridge */ = {
@@ -1460,8 +1463,7 @@
 				D510434D203776D400D8D17C /* SongController.swift */,
 				D510434A203776D400D8D17C /* URLParams.swift */,
 			);
-			name = Controller;
-			path = Sources/Controller;
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		OBJ_101 /* CryptoKitten 0.2.3 */ = {
@@ -2027,6 +2029,7 @@
 		OBJ_5 /*  */ = {
 			isa = PBXGroup;
 			children = (
+				D510438020378A7B00D8D17C /* config.json */,
 				OBJ_6 /* Package.swift */,
 				OBJ_7 /* Sources */,
 				OBJ_14 /* Tests */,
@@ -2094,7 +2097,7 @@
 				D510433A203776D400D8D17C /* Model */,
 				D5104333203776D400D8D17C /* Repository */,
 			);
-			name = Sources;
+			path = Sources;
 			sourceTree = SOURCE_ROOT;
 		};
 		OBJ_75 /* Internals */ = {
@@ -2112,7 +2115,9 @@
 			isa = PBXGroup;
 			children = (
 				OBJ_9 /* Application.swift */,
+				D510437C203785A700D8D17C /* AppSettings.swift */,
 				OBJ_10 /* InitializationError.swift */,
+				D510437A2037789700D8D17C /* ParseAuthMiddleware.swift */,
 			);
 			name = Application;
 			path = Sources/Application;
@@ -2932,6 +2937,7 @@
 				D51043662037775000D8D17C /* ArtistController.swift in Sources */,
 				D510436F2037776400D8D17C /* LazyRelationship.swift in Sources */,
 				D51043702037776400D8D17C /* Playlist.swift in Sources */,
+				D510437B2037789700D8D17C /* ParseAuthMiddleware.swift in Sources */,
 				D51043692037775000D8D17C /* PlaylistController.swift in Sources */,
 				D51043712037776400D8D17C /* Song.swift in Sources */,
 				D51043722037776B00D8D17C /* LegacyBridge.swift in Sources */,
@@ -2939,6 +2945,7 @@
 				D51043732037776B00D8D17C /* V1.swift in Sources */,
 				D510436D2037776400D8D17C /* GlobalConfig.swift in Sources */,
 				D51043742037777300D8D17C /* FileRepository.swift in Sources */,
+				D510437D203785A700D8D17C /* AppSettings.swift in Sources */,
 				D51043762037777300D8D17C /* MongoDocumentExtensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -5,6 +5,7 @@ import KituraContracts
 class SongController {
     static func setupRoutes(app: App) {
         // v1
+        app.router.get("/parse/files/arcanosRadio/:name", allowPartialMatch: false, middleware: app.parseAuthenticationMiddleware)
         app.router.get("/parse/files/arcanosRadio/:name", handler: V1.file)
 
         // v2

@@ -4,6 +4,7 @@ import KituraContracts
 class GlobalConfigController {
     static func setupRoutes(app: App) {
         // v1
+        app.router.get("/parse/config", allowPartialMatch: false, middleware: app.parseAuthenticationMiddleware)
         app.router.get("/parse/config", handler: V1.listOne)
 
         // v2

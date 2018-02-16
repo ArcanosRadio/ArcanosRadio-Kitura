@@ -15,7 +15,7 @@ class MongoRepository {
     static let shared = try! MongoRepository()
 
     private init() throws {
-        db = try MongoKitten.Database("mongodb://localhost/dev")
+        db = try MongoKitten.Database(AppSettings.current.mongoUrl)
         fs = try db.makeGridFS()
     }
 
