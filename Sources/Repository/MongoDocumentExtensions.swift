@@ -15,10 +15,21 @@ enum DocumentConvertionError: Error {
 
 extension Document {
     func required<T, P>(_ property: P, converter: (Primitive) -> T?) throws -> T where P: MappingProtocol {
-        guard let primitive = self[property.rawValue] else { throw DocumentConvertionError.propertyNotFound }
-        guard let value = converter(primitive) else { throw DocumentConvertionError.invalidConvertion }
+        let levels = property.rawValue.components(separatedBy: ".")
+        return try required(levels: levels, converter: converter)
+    }
 
-        return value
+    func required<T>(levels: [String], converter: (Primitive) -> T?) throws -> T {
+        let currentLevel = levels.first!
+        guard let propertyValue = self[currentLevel] else { throw DocumentConvertionError.propertyNotFound }
+
+        if levels.count > 1 {
+            guard let document = Document(propertyValue) else { throw DocumentConvertionError.invalidConvertion }
+            return try document.required(levels: Array(levels.dropFirst()), converter: converter)
+        } else {
+            guard let value = converter(propertyValue) else { throw DocumentConvertionError.invalidConvertion }
+            return value
+        }
     }
 
     func optional<T, P>(_ property: P, converter: (Primitive) -> T?) -> T? where P: RawRepresentable, P.RawValue == String {

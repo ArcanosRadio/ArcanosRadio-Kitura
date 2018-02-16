@@ -55,7 +55,6 @@ extension Song: MongoModel {
     }
 }
 
-
 extension Playlist: MongoModel {
     static let collectionName = "Playlist"
 
@@ -66,6 +65,28 @@ extension Playlist: MongoModel {
             self.song = .notLoaded((try document.required(PlaylistMapping.song, converter: String.init)).components(separatedBy: "$")[1])
             self.createdAt = try document.required(PlaylistMapping.createdAt, converter: Date.init)
             self.updatedAt = try document.required(PlaylistMapping.updatedAt, converter: Date.init)
+        } catch {
+            return nil
+        }
+    }
+}
+
+extension GlobalConfig: MongoModel {
+    static let collectionName = "_GlobalConfig"
+
+    init?(mongo document: Document) {
+        do {
+            self.id = Id(rawValue: try document.required(GlobalConfigMapping.id, converter: String.init))!
+
+            self.iphoneStreamingUrl = try document.required(GlobalConfigMapping.iphoneStreamingUrl, converter: URL.init)
+
+            self.iphonePoolingTimeActive = try document.required(GlobalConfigMapping.iphonePoolingTimeActive, converter: Int.init)
+            self.iphonePoolingTimeBackground = try document.required(GlobalConfigMapping.iphonePoolingTimeBackground, converter: Int.init)
+            self.iphoneShareUrl = try document.required(GlobalConfigMapping.iphoneShareUrl, converter: URL.init)
+            self.androidStreamingUrl = try document.required(GlobalConfigMapping.androidStreamingUrl, converter: URL.init)
+            self.androidShareUrl = try document.required(GlobalConfigMapping.androidShareUrl, converter: URL.init)
+            self.androidPoolingTimeActive = try document.required(GlobalConfigMapping.androidPoolingTimeActive, converter: Int.init)
+            self.iphoneRightsFlag = try document.required(GlobalConfigMapping.iphoneRightsFlag, converter: Bool.init)
         } catch {
             return nil
         }

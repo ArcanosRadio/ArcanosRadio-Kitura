@@ -1,6 +1,5 @@
 import Foundation
 import KituraContracts
-import Configuration
 
 class PlaylistController {
     static func setupRoutes(app: App) {

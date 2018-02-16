@@ -62,6 +62,10 @@ extension MongoRepository: Repository {
     func listPlaylists(pageSize: Int, page: Int) -> [Playlist] {
         return list(pageSize: pageSize, page: page, sort: [PlaylistMapping.createdAt: .descending])
     }
+
+    func getGlobalConfig() -> GlobalConfig {
+        return list(pageSize: 1, page: 0, sort: [GlobalConfigMapping.id: .ascending]).first!
+    }
 }
 
 extension MongoRepository: FileRepository {

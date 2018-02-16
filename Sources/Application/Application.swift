@@ -25,6 +25,7 @@ public class App {
         ArtistController.setupRoutes(app: self)
         SongController.setupRoutes(app: self)
         PlaylistController.setupRoutes(app: self)
+        GlobalConfigController.setupRoutes(app: self)
 
         let options = Options(allowedOrigin: .all)
         let cors = CORS(options: options)

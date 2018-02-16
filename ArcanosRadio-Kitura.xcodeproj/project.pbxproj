@@ -70,6 +70,8 @@
 		D5CC25DE2034E5F0005CAEAF /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5CC25DD2034E5F0005CAEAF /* Helper.swift */; };
 		D5CC25E12034E893005CAEAF /* V1.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5CC25E02034E893005CAEAF /* V1.swift */; };
 		D5CC25E32034F3B7005CAEAF /* LegacyBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5CC25E22034F3B7005CAEAF /* LegacyBridge.swift */; };
+		D5CC25E520365265005CAEAF /* GlobalConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5CC25E420365265005CAEAF /* GlobalConfig.swift */; };
+		D5CC25E720365A3B005CAEAF /* GlobalConfigController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5CC25E620365A3B005CAEAF /* GlobalConfigController.swift */; };
 		OBJ_1003 /* Base64_temp.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_45 /* Base64_temp.swift */; };
 		OBJ_1004 /* Database+Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_46 /* Database+Authentication.swift */; };
 		OBJ_1005 /* SCRAM.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_47 /* SCRAM.swift */; };
@@ -2820,6 +2822,8 @@
 		D5CC25DD2034E5F0005CAEAF /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		D5CC25E02034E893005CAEAF /* V1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = V1.swift; sourceTree = "<group>"; };
 		D5CC25E22034F3B7005CAEAF /* LegacyBridge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegacyBridge.swift; sourceTree = "<group>"; };
+		D5CC25E420365265005CAEAF /* GlobalConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalConfig.swift; sourceTree = "<group>"; };
+		D5CC25E620365A3B005CAEAF /* GlobalConfigController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalConfigController.swift; sourceTree = "<group>"; };
 		"FileKit::FileKit::Product" /* FileKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FileKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"Health::Health::Product" /* Health.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Health.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"HeliumLogger::HeliumLogger::Product" /* HeliumLogger.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = HeliumLogger.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -3808,6 +3812,7 @@
 			children = (
 				D5417C1420335AF000CB5397 /* Artist.swift */,
 				D5CC25D72034D662005CAEAF /* Id.swift */,
+				D5CC25E420365265005CAEAF /* GlobalConfig.swift */,
 				D5417C2920337DAA00CB5397 /* LazyRelationship.swift */,
 				D5417C2520337BC300CB5397 /* Playlist.swift */,
 				D5417C2720337CBA00CB5397 /* Song.swift */,
@@ -3904,6 +3909,7 @@
 			isa = PBXGroup;
 			children = (
 				OBJ_13 /* ArtistController.swift */,
+				D5CC25E620365A3B005CAEAF /* GlobalConfigController.swift */,
 				OBJ_14 /* HealthRoutes.swift */,
 				D5417C2D2033948100CB5397 /* PlaylistController.swift */,
 				D5417C2B20338BF200CB5397 /* SongController.swift */,
@@ -7451,6 +7457,7 @@
 				D5417C1C203361C100CB5397 /* MongoModels.swift in Sources */,
 				D5417C2620337BC300CB5397 /* Playlist.swift in Sources */,
 				D5CC25DC2034DE63005CAEAF /* Mapping.swift in Sources */,
+				D5CC25E720365A3B005CAEAF /* GlobalConfigController.swift in Sources */,
 				D5417C1A20335CCD00CB5397 /* MongoRepository.swift in Sources */,
 				D5417C3020339E3100CB5397 /* FileRepository.swift in Sources */,
 				D5417C242033793800CB5397 /* MongoDocumentExtensions.swift in Sources */,
@@ -7465,6 +7472,7 @@
 				D5CC25E32034F3B7005CAEAF /* LegacyBridge.swift in Sources */,
 				D5417C20203373F900CB5397 /* DependencyInjector.swift in Sources */,
 				OBJ_909 /* Metrics.swift in Sources */,
+				D5CC25E520365265005CAEAF /* GlobalConfig.swift in Sources */,
 				OBJ_910 /* ArtistController.swift in Sources */,
 				D5CC25D92034D77B005CAEAF /* Id.swift in Sources */,
 				OBJ_911 /* HealthRoutes.swift in Sources */,
