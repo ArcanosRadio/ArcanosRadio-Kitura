@@ -1,6 +1,7 @@
 import Foundation
 import Kitura
 import KituraTemplateEngine
+import KituraStencil
 
 public class App {
     let router = Router()
@@ -12,14 +13,18 @@ public class App {
         // Auth
         ParseAuthMiddleware.configure("/parse/:path*", app: self)
         
-        // Endpoints
+        // API Endpoints
         ArtistAPIController.setupRoutes(app: self)
         SongAPIController.setupRoutes(app: self)
         PlaylistAPIController.setupRoutes(app: self)
         GlobalConfigAPIController.setupRoutes(app: self)
 
+        // Web Endpoints
+        IndexController.setupRoutes(app: self)
+
         // Static
         router.all("/static", middleware: StaticFileServer(path: "./static"))
+        router.setDefault(templateEngine: StencilTemplateEngine())
     }
 
     public func run() throws {

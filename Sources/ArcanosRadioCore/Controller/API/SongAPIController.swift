@@ -31,27 +31,27 @@ extension SongAPIController {
             completion(songs, nil)
         }
 
-        static func file(req: RouterRequest, resp: RouterResponse, next: @escaping () -> Void) throws {
-            guard let name = req.parameters["name"] else {
-                _ = resp.send(status: .badRequest)
+        static func file(request: RouterRequest, response: RouterResponse, next: @escaping () -> Void) throws {
+            guard let name = request.parameters["name"] else {
+                _ = response.send(status: .badRequest)
                 next()
                 return
             }
 
             let fs = inject(FileRepository.self)
             guard let data = fs.file(byName: name) else {
-                _ = resp.send(status: .notFound)
+                _ = response.send(status: .notFound)
                 next()
                 return
             }
 
             let contentType = ContentType.sharedInstance.getContentType(forFileName: name)
             if  let contentType = contentType {
-                resp.headers["Content-Type"] = contentType
+                response.headers["Content-Type"] = contentType
             }
 
-            resp.statusCode = .OK
-            resp.send(data: data)
+            response.statusCode = .OK
+            response.send(data: data)
             next()
         }
     }
@@ -60,7 +60,7 @@ extension SongAPIController {
 extension SongAPIController {
     class V1 {
         static func file(req: RouterRequest, resp: RouterResponse, next: @escaping () -> Void) throws {
-            return try V2.file(req: req, resp: resp, next: next)
+            return try V2.file(request: req, response: resp, next: next)
         }
     }
 }

@@ -11,7 +11,7 @@ let package = Package(
     targets: [
         .target(name: "ArcanosRadioModel"),
         .target(name: "ArcanosRadioCore",
-                dependencies: [ "Kitura", "MongoKitten", .target(name: "ArcanosRadioModel") ]),
+                dependencies: [ "Kitura", "KituraStencil", "MongoKitten", .target(name: "ArcanosRadioModel") ]),
         .target(name: "ArcanosRadioServer",
                 dependencies: [ "Kitura", .target(name: "ArcanosRadioCore") ]),
         .testTarget(name: "ApplicationTests",

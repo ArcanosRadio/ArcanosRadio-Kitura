@@ -1,0 +1,14 @@
+{% extends "html.stencil" %}
+
+{% block content %}
+
+<h3>There are {{ articles.count }} articles.</h3>
+
+<ul>
+    {% for article in articles %}
+    <li>{{ article.title }} by {{ article.author }}.</li>
+    {% endfor %}
+</ul>
+
+{% endblock %}
+
