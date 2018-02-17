@@ -19,7 +19,7 @@ public struct AppSettings: Codable {
     public func merging(_ other: AppSettings) -> AppSettings {
         return AppSettings.fromDictionary(
             self.toDictionary().merging(other.toDictionary(), uniquingKeysWith: { $1 })
-            )!
+        )!
     }
 
     public func merging(dictionary: [String: String]) -> AppSettings {

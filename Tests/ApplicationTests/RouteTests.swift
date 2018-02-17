@@ -1,15 +1,15 @@
 import Foundation
+import HeliumLogger
 import Kitura
 import KituraNet
-import XCTest
-import HeliumLogger
 import LoggerAPI
+import XCTest
 
 @testable import Application
 
 class RouteTests: XCTestCase {
     static var port: Int!
-    static var allTests : [(String, (RouteTests) -> () throws -> Void)] {
+    static var allTests: [(String, (RouteTests) -> () throws -> Void)] {
         return [
             ("testGetStatic", testGetStatic)
         ]
@@ -45,7 +45,7 @@ class RouteTests: XCTestCase {
 
         URLRequest(forTestWithMethod: "GET")?
             .sendForTestingWithKitura { data, statusCode in
-                if let getResult = String(data: data, encoding: String.Encoding.utf8){
+                if let getResult = String(data: data, encoding: String.Encoding.utf8) {
                     XCTAssertEqual(statusCode, 200)
                     XCTAssertTrue(getResult.contains("<html"))
                     XCTAssertTrue(getResult.contains("</html>"))
@@ -54,18 +54,17 @@ class RouteTests: XCTestCase {
                 }
 
                 printExpectation.fulfill()
-        }
+            }
 
         waitForExpectations(timeout: 10.0, handler: nil)
     }
 
 }
 
-
 private extension URLRequest {
 
     init?(forTestWithMethod method: String, route: String = "", body: Data? = nil) {
-        if let url = URL(string: "http://127.0.0.1:\(RouteTests.port)/" + route){
+        if let url = URL(string: "http://127.0.0.1:\(RouteTests.port)/" + route) {
             self.init(url: url)
             addValue("application/json", forHTTPHeaderField: "Content-Type")
             httpMethod = method
@@ -90,7 +89,7 @@ private extension URLRequest {
             path += "?" + query
         }
 
-        let requestOptions: [ClientRequest.Options] = [.method(method), .hostname("localhost"), .port(8080), .path(path), .headers(headers)]
+        let requestOptions: [ClientRequest.Options] = [.method(method), .hostname("localhost"), .port(8_080), .path(path), .headers(headers)]
 
         let req = HTTP.request(requestOptions) { resp in
 
@@ -107,7 +106,7 @@ private extension URLRequest {
                     print("Status code: \(resp.statusCode)")
                     var rawUserData = Data()
                     do {
-                        let _ = try resp.read(into: &rawUserData)
+                        _ = try resp.read(into: &rawUserData)
                         let str = String(data: rawUserData, encoding: String.Encoding(rawValue: String.Encoding.utf8.rawValue))
                         print("Error response from Kitura-Starter: \(String(describing: str))")
                     } catch {

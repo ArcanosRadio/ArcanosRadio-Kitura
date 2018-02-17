@@ -1,6 +1,6 @@
+import ArcanosRadioModel
 import Foundation
 import KituraContracts
-import ArcanosRadioModel
 
 class GlobalConfigAPIController {
     static func setupRoutes(app: App) {
@@ -31,4 +31,3 @@ extension GlobalConfigAPIController {
         }
     }
 }
-

@@ -1,5 +1,5 @@
-import Foundation
 import ArcanosRadioModel
+import Foundation
 
 protocol Repository {
     func artist(byId id: String) -> Artist?

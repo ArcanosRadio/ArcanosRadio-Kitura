@@ -1,7 +1,7 @@
+import ArcanosRadioModel
 import Foundation
 import MongoKitten
 import MongoSocket
-import ArcanosRadioModel
 
 class MongoRepository {
     private let db: Database

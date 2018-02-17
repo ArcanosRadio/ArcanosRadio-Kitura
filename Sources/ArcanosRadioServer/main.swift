@@ -1,7 +1,7 @@
+import ArcanosRadioCore
 import Foundation
 import Kitura
 import LoggerAPI
-import ArcanosRadioCore
 
 do {
     let envFilePath = URL(fileURLWithPath: #file)

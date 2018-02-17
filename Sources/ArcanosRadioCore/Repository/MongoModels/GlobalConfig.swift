@@ -1,6 +1,6 @@
+import ArcanosRadioModel
 import Foundation
 import MongoKitten
-import ArcanosRadioModel
 
 extension GlobalConfig: MongoModel {
     static let collectionName = "_GlobalConfig"

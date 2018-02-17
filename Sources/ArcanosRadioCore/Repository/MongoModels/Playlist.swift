@@ -1,6 +1,6 @@
+import ArcanosRadioModel
 import Foundation
 import MongoKitten
-import ArcanosRadioModel
 
 extension Playlist: MongoModel {
     static let collectionName = "Playlist"

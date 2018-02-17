@@ -1,5 +1,5 @@
-import Foundation
 import ArcanosRadioModel
+import Foundation
 
 enum SongMapping: String, MappingProtocol {
     typealias Entity = Song

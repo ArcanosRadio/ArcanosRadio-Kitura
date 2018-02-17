@@ -1,7 +1,7 @@
+import ArcanosRadioModel
 import Foundation
 import Kitura
 import KituraContracts
-import ArcanosRadioModel
 
 class SongAPIController {
     static func setupRoutes(app: App) {

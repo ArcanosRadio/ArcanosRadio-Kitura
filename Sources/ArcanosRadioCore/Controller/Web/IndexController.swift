@@ -4,19 +4,15 @@ import KituraContracts
 
 class IndexController {
     static func setupRoutes(app: App) {
-        app.router.get("/", handler: index)
+        app.router.get("/admin", handler: index)
     }
 
     static func index(request: RouterRequest, response: RouterResponse, next: @escaping () -> Void) throws {
-        var context2 = [
-            "articles": [
-                ["title": "Migrating from OCUnit to XCTest", "author": "Kyle Fuller"],
-                ["title": "Memory Management with ARC", "author": "Kyle Fuller" ]
-            ]
+        let context: [String: Any] = [
+            "menu": MenuHelper.items
         ]
 
-        try response.render("index", context: context2).end()
+        try response.render("index", context: context).end()
         next()
     }
 }
-

@@ -31,7 +31,8 @@ public struct SongV1: CustomEncoder {
     }
 
     public enum CodingKeys: String, CodingKey {
-        case id = "objectId", tags, name = "songName", createdAt, updatedAt, artist, albumArt, albumArtState, lyrics, lyricsState, hasRightsContract, className, type = "__type"
+        case id = "objectId", tags, name = "songName", createdAt, updatedAt, artist, albumArt,
+             albumArtState, lyrics, lyricsState, hasRightsContract, className, type = "__type"
     }
 
     public func encode(entity: Song, encoder: Encoder) throws {
@@ -61,7 +62,8 @@ public struct SongV1: CustomEncoder {
 
 public struct ArtistV1: CustomEncoder {
     public enum CodingKeys: String, CodingKey {
-        case id = "objectId", tags, name = "artistName", createdAt, updatedAt, url, twitter = "twitterTimeline", className, type = "__type"
+        case id = "objectId", tags, name = "artistName", createdAt, updatedAt, url,
+             twitter = "twitterTimeline", className, type = "__type"
     }
 
     public func encode(entity: Artist, encoder: Encoder) throws {

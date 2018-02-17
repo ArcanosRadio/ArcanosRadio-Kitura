@@ -1,5 +1,5 @@
-import Foundation
 import ArcanosRadioModel
+import Foundation
 
 enum GlobalConfigMapping: String, MappingProtocol {
     typealias Entity = GlobalConfig

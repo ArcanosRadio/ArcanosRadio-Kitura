@@ -1,6 +1,6 @@
+import ArcanosRadioModel
 import Foundation
 import KituraContracts
-import ArcanosRadioModel
 
 class ArtistAPIController {
     static func setupRoutes(app: App) {
