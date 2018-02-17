@@ -966,6 +966,7 @@
 		D510437A2037789700D8D17C /* ParseAuthMiddleware.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseAuthMiddleware.swift; sourceTree = "<group>"; };
 		D510437C203785A700D8D17C /* AppSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettings.swift; sourceTree = "<group>"; };
 		D510438020378A7B00D8D17C /* config.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = config.json; sourceTree = "<group>"; };
+		D5104388203793F300D8D17C /* common.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = common.js; sourceTree = "<group>"; };
 		"Kitura-TemplateEngine::KituraTemplateEngine::Product" /* KituraTemplateEngine.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = KituraTemplateEngine.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"Kitura-net::CHTTPParser::Product" /* CHTTPParser.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CHTTPParser.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"Kitura-net::KituraNet::Product" /* KituraNet.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = KituraNet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1480,6 +1481,14 @@
 			children = (
 			);
 			path = Web;
+			sourceTree = "<group>";
+		};
+		D5104387203793BC00D8D17C /* static */ = {
+			isa = PBXGroup;
+			children = (
+				D5104388203793F300D8D17C /* common.js */,
+			);
+			path = static;
 			sourceTree = "<group>";
 		};
 		OBJ_101 /* CryptoKitten 0.2.3 */ = {
@@ -2048,6 +2057,7 @@
 				D510438020378A7B00D8D17C /* config.json */,
 				OBJ_6 /* Package.swift */,
 				OBJ_7 /* Sources */,
+				D5104387203793BC00D8D17C /* static */,
 				OBJ_14 /* Tests */,
 				OBJ_19 /* DerivedData */,
 				OBJ_20 /* Dependencies */,

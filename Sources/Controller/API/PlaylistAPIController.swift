@@ -6,7 +6,6 @@ class PlaylistAPIController {
         // v1
         let repository = inject(Repository.self)
         let url = repository.getGlobalConfig().serviceUrl
-        app.router.post("/parse/classes/Playlist", allowPartialMatch: false, middleware: app.parseAuthenticationMiddleware)
         app.router.post("/parse/classes/Playlist", handler: V1.current(url: url))
 
         // v2

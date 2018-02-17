@@ -1,7 +1,6 @@
 import Foundation
 import Kitura
-import KituraContracts
-import LoggerAPI
+import KituraTemplateEngine
 
 public class App {
     let router = Router()
@@ -10,11 +9,17 @@ public class App {
     }
 
     func postInit() throws {
+        // Auth
+        ParseAuthMiddleware.configure("/parse/:path*", app: self)
+        
         // Endpoints
         ArtistAPIController.setupRoutes(app: self)
         SongAPIController.setupRoutes(app: self)
         PlaylistAPIController.setupRoutes(app: self)
         GlobalConfigAPIController.setupRoutes(app: self)
+
+        // Static
+        router.all("/static", middleware: StaticFileServer(path: "./static"))
     }
 
     public func run() throws {
@@ -22,6 +27,4 @@ public class App {
         Kitura.addHTTPServer(onPort: Int(AppSettings.current.serverPort)!, with: router)
         Kitura.run()
     }
-
-    let parseAuthenticationMiddleware = ParseAuthMiddleware()
 }
