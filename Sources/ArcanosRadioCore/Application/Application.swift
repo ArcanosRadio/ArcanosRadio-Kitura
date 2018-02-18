@@ -1,12 +1,13 @@
 import Foundation
 import Kitura
-import KituraStencil
-import KituraTemplateEngine
 
 public class App {
     let router = Router()
 
     public init() throws {
+        let encoder = JSONEncoder()
+        encoder.dateEncodingStrategy = .secondsSince1970
+        HttpEncoder.default = encoder
     }
 
     func postInit() throws {
@@ -24,7 +25,7 @@ public class App {
 
         // Static
         router.all("/static", middleware: StaticFileServer(path: "./static"))
-        router.setDefault(templateEngine: StencilTemplateEngine())
+        Template.setupTemplates(app: self)
     }
 
     public func run() throws {

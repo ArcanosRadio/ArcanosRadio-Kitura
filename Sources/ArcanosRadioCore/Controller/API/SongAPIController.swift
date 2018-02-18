@@ -18,30 +18,34 @@ class SongAPIController {
 
 extension SongAPIController {
     class V2 {
-        static func byId(id: StringIdentifier, completion: @escaping (Song?, RequestError?) -> Void) {
+        static func byId(id: StringIdentifier, completion: @escaping (Result<Song, RequestError>) -> Void) {
             let repository = inject(Repository.self)
-            let song = repository.song(byId: id.value)
-            completion(song, nil)
+            guard let song = repository.song(byId: id.value) else {
+                completion(.failure(.notFound))
+                return
+            }
+            
+            completion(.success(song))
         }
 
-        static func list(urlParams: PageURLParams, completion: @escaping ([Song]?, RequestError?) -> Void) {
+        static func list(urlParams: PageURLParams, completion: @escaping (Result<[Song], RequestError>) -> Void) {
             let repository = inject(Repository.self)
             let songs = repository.listSongs(pageSize: urlParams.pageSize ?? 30,
                                              page: urlParams.page ?? 0)
-            completion(songs, nil)
+            completion(.success(songs))
         }
 
         static func file(request: RouterRequest, response: RouterResponse, next: @escaping () -> Void) throws {
+            defer { next() }
+
             guard let name = request.parameters["name"] else {
                 _ = response.send(status: .badRequest)
-                next()
                 return
             }
 
             let fs = inject(FileRepository.self)
             guard let data = fs.file(byName: name) else {
                 _ = response.send(status: .notFound)
-                next()
                 return
             }
 
@@ -52,7 +56,6 @@ extension SongAPIController {
 
             response.statusCode = .OK
             response.send(data: data)
-            next()
         }
     }
 }

@@ -8,16 +8,19 @@ class ArtistAPIController {
         app.router.get("/api/artist", handler: list)
     }
 
-    static func byId(id: StringIdentifier, completion: @escaping (Artist?, RequestError?) -> Void) {
+    static func byId(id: StringIdentifier, completion: @escaping (Result<Artist, RequestError>) -> Void) {
         let repository = inject(Repository.self)
-        let artist = repository.artist(byId: id.value)
-        completion(artist, nil)
+        guard let artist = repository.artist(byId: id.value) else {
+            completion(.failure(.notFound))
+            return
+        }
+        completion(.success(artist))
     }
 
-    static func list(urlParams: PageURLParams, completion: @escaping ([Artist]?, RequestError?) -> Void) {
+    static func list(urlParams: PageURLParams, completion: @escaping (Result<[Artist], RequestError>) -> Void) {
         let repository = inject(Repository.self)
         let artists = repository.listArtists(pageSize: urlParams.pageSize ?? 30,
                                              page: urlParams.page ?? 0)
-        completion(artists, nil)
+        completion(.success(artists))
     }
 }

@@ -18,20 +18,24 @@ class PlaylistAPIController {
 
 extension PlaylistAPIController {
     class V2 {
-        static func byId(id: StringIdentifier, completion: @escaping (Playlist?, RequestError?) -> Void) {
+        static func byId(id: StringIdentifier, completion: @escaping (Result<Playlist, RequestError>) -> Void) {
             let repository = inject(Repository.self)
-            let playlist = repository.playlist(byId: id.value)
-            completion(playlist, nil)
+            guard let playlist = repository.playlist(byId: id.value) else {
+                completion(.failure(.notFound))
+                return
+            }
+            
+            completion(.success(playlist))
         }
 
-        static func list(urlParams: PageURLParams, completion: @escaping ([Playlist]?, RequestError?) -> Void) {
+        static func list(urlParams: PageURLParams, completion: @escaping (Result<[Playlist], RequestError>) -> Void) {
             let repository = inject(Repository.self)
             let playlists = repository.listPlaylists(pageSize: urlParams.pageSize ?? 30,
                                                      page: urlParams.page ?? 0)
-            completion(playlists, nil)
+            completion(.success(playlists))
         }
 
-        static func current(completion: @escaping (Playlist, RequestError?) -> Void) {
+        static func current(completion: @escaping (Result<Playlist, RequestError>) -> Void) {
             let repository = inject(Repository.self)
             var playlist = repository.listPlaylists(pageSize: 1, page: 0).first!
 
@@ -47,7 +51,7 @@ extension PlaylistAPIController {
                 playlist.song = .loaded(song)
             }
 
-            completion(playlist, nil)
+            completion(.success(playlist))
         }
     }
 }
@@ -55,7 +59,7 @@ extension PlaylistAPIController {
 extension PlaylistAPIController {
     class V1 {
         typealias LegacyPlaylistJson = [String: [LegacyBridge<Playlist>]]
-        typealias LegacyPlaylistCompletion = (LegacyPlaylistJson?, RequestError?) -> Void
+        typealias LegacyPlaylistCompletion = (Result<LegacyPlaylistJson, RequestError>) -> Void
         struct ParseRequest: Codable {
             let include: String?
             let order: String?
@@ -85,7 +89,7 @@ extension PlaylistAPIController {
                 }
 
                 let filePath = "\(url)/parse/files/arcanosRadio/%@"
-                completion(["results": [LegacyBridge(playlist, { PlaylistV1(filePath: filePath) })]], nil)
+                completion(.success(["results": [LegacyBridge(playlist, { PlaylistV1(filePath: filePath) })]]))
             }
         }
     }

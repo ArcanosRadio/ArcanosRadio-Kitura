@@ -14,20 +14,20 @@ class GlobalConfigAPIController {
 
 extension GlobalConfigAPIController {
     class V2 {
-        static func listOne(completion: @escaping (GlobalConfig, RequestError?) -> Void) {
+        static func listOne(completion: @escaping (Result<GlobalConfig, RequestError>) -> Void) {
             let repository = inject(Repository.self)
             let config = repository.getGlobalConfig()
-            completion(config, nil)
+            completion(.success(config))
         }
     }
 }
 
 extension GlobalConfigAPIController {
     class V1 {
-        static func listOne(completion: @escaping ([String: GlobalConfig], RequestError?) -> Void) {
+        static func listOne(completion: @escaping (Result<[String: GlobalConfig], RequestError>) -> Void) {
             let repository = inject(Repository.self)
             let config = repository.getGlobalConfig()
-            completion(["params": config], nil)
+            completion(.success(["params": config]))
         }
     }
 }

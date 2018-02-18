@@ -30,6 +30,7 @@ type_name:
     - V2
 disabled_rules:
   - force_try
+  - force_cast
 excluded:
   - Carthage
   - Crashlytics.framework
