@@ -104,7 +104,8 @@ extension Router {
         }
     }
 
-    private func postSafelyWithId<I: Codable, Id: Identifier, O: Codable>(_ route: String, handler: @escaping CodableIdentifierClosureEx<I, Id, O>) {
+    private func postSafelyWithId<I: Codable, Id: Identifier, O: Codable>(
+        _ route: String, handler: @escaping CodableIdentifierClosureEx<I, Id, O>) {
         post(route) { request, response, next in
             Log.verbose("Received POST type-safe request")
             guard self.isContentTypeJson(request) else {
@@ -270,7 +271,7 @@ extension Router {
 extension Router {
     // Get single
     private func getSafely<O: Codable>(_ route: String, handler: @escaping SimpleCodableClosureEx<O>) {
-        get(route) { request, response, next in
+        get(route) { _, response, next in
             Log.verbose("Received GET (single no-identifier) type-safe request")
             // Define result handler
             let resultHandler: CodableResultClosureEx<O> = { result in
@@ -297,7 +298,7 @@ extension Router {
 
     // Get array
     private func getSafely<O: Codable>(_ route: String, handler: @escaping CodableArrayClosureEx<O>) {
-        get(route) { request, response, next in
+        get(route) { _, response, next in
             Log.verbose("Received GET (plural) type-safe request")
             // Define result handler
             let resultHandler: CodableArrayResultClosureEx<O> = { result in
@@ -323,7 +324,9 @@ extension Router {
     }
 
     // Get w/Query Parameters
-    private func getSafely<Q: QueryParams, O: Codable>(_ route: String, handler: @escaping (Q, @escaping CodableArrayResultClosureEx<O>) -> Void) {
+    private func getSafely<Q: QueryParams, O: Codable>(
+        _ route: String,
+        handler: @escaping (Q, @escaping CodableArrayResultClosureEx<O>) -> Void) {
         get(route) { request, response, next in
             Log.verbose("Received GET (plural) type-safe request with Query Parameters")
             // Define result handler
@@ -402,7 +405,7 @@ extension Router {
     private func parameterIsPresent(in route: String) -> Bool {
         if route.contains(":") {
             let paramaterString = route.split(separator: ":", maxSplits: 1, omittingEmptySubsequences: false)
-            let parameter = paramaterString.count > 0 ? paramaterString[1] : ""
+            let parameter = !paramaterString.isEmpty ? paramaterString[1] : ""
             Log.error("Erroneous path '\(route)', parameter ':\(parameter)' is not allowed. Codable routes do not allow parameters.")
             return true
         }

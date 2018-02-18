@@ -24,7 +24,7 @@ extension SongAPIController {
                 completion(.failure(.notFound))
                 return
             }
-            
+
             completion(.success(song))
         }
 

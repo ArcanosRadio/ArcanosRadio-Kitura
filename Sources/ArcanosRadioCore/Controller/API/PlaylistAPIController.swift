@@ -24,7 +24,7 @@ extension PlaylistAPIController {
                 completion(.failure(.notFound))
                 return
             }
-            
+
             completion(.success(playlist))
         }
 
