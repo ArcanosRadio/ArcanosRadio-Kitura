@@ -1,0 +1,60 @@
+{% extends "html.stencil" %}
+
+{% block content %}
+
+<h1 class="mt-4">Current song</h1>
+
+<div id="target">
+</div>
+
+{% endblock %}
+
+{% block js %}
+
+<script id="currentSongTemplate" type="text/x-handlebars-template">
+    Id: {{ "id"|escape }}<br />
+    Title: {{ "title"|escape }}<br />
+    Updated: {{ "date updatedAt"|escape }}<br />
+    Created: {{ "date createdAt"|escape }}<br />
+    <br />
+    Song:<br />
+    - Id: {{ "song.id"|escape }}<br />
+    - Name: {{ "song.name"|escape }}<br />
+    - Lyrics File Name: {{ "song.lyrics"|escape }}<br />
+    - Lyrics State: {{ "song.lyricsState"|escape }}<br />
+    - Show Lyrics iPhone: {{ "song.hasRightsContract"|escape }}<br />
+    - Album File Name: {{ "song.albumArt"|escape }}<br />
+    - Album State: {{ "song.albumArtState"|escape }}<br />
+    - Tags: {{ "song.tags"|escape }}<br />
+    - Updated: {{ "date song.updatedAt"|escape }}<br />
+    - Created: {{ "date song.createdAt"|escape }}<br />
+    <br />
+    - Artist:<br />
+    -- Id: {{ "song.artist.id"|escape }}<br />
+    -- Name: {{ "song.artist.name"|escape }}<br />
+    -- Tags: {{ "song.artist.tags"|escape }}<br />
+    -- Site: {{ "song.artist.url"|escape }}<br />
+    -- Updated: {{ "date song.artist.updatedAt"|escape }}<br />
+    -- Created: {{ "date song.artist.createdAt"|escape }}<br />
+    <br />
+    <img src='/api/albumArt/{{ "song.albumArt"|escape }}' />
+    <iframe src='/api/lyrics/{{ "song.lyrics"|escape }}'>
+    </iframe>
+</script>
+
+<script type="text/javascript">
+    var currentSongBind;
+
+    function refreshCurrentSong() {
+        let song = requestCurrentSong(function (song, error) {
+            currentSongBind.updateView(song);
+        });
+    }
+
+    $(document).ready(function () {
+        currentSongBind = bind("#currentSongTemplate", "#target");
+        refreshCurrentSong();
+    });
+</script>
+
+{% endblock %}

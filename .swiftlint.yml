@@ -15,12 +15,28 @@ identifier_name:
     error: 3
   excluded:
     - id
+    - db
+    - fs
+    - fn
+    - v1
+    - v2
+type_name:
+  min_length:
+    warning: 2
+    error: 1
+  excluded:
+    - Id
+    - V1
+    - V2
 disabled_rules:
   - force_try
+  - force_cast
 excluded:
   - Carthage
   - Crashlytics.framework
   - Pods
+  - .build
+  - DerivedData
   - "Senac/SwiftGen"
 opt_in_rules: # some rules are only opt-in
   - closure_end_indentation
